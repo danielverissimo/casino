@@ -4,8 +4,9 @@ namespace Cysha\Casino\Cards;
 
 use BadMethodCallException;
 use Illuminate\Support\Collection;
+use JsonSerializable;
 
-class CardCollection extends Collection
+class CardCollection extends Collection implements JsonSerializable
 {
     /**
      * @var string
@@ -164,4 +165,5 @@ class CardCollection extends Collection
             return $card->__toString();
         })->implode(' ');
     }
+
 }

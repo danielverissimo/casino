@@ -4,8 +4,9 @@ namespace Cysha\Casino\Cards;
 
 use Cysha\Casino\Exceptions\CardException;
 use InvalidArgumentException;
+use JsonSerializable;
 
-class Card
+class Card implements JsonSerializable
 {
     const ACE = 1;
     const JACK = 11;
@@ -310,5 +311,13 @@ class Card
     public function __toString()
     {
         return $this->shortIdentifier();
+    }
+
+    function jsonSerialize()
+    {
+        return [
+            'suit' => $this->suit()->value(),
+            'value' => $this->value,
+        ];
     }
 }
