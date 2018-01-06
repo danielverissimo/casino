@@ -52,8 +52,8 @@ class Card implements JsonSerializable
     protected $value;
 
     /**
-     * @param int  $value the value of the card
-     * @param Suit $suit  the suit of the card
+     * @param int $value the value of the card
+     * @param Suit $suit the suit of the card
      *
      * @throws InvalidArgumentException
      */
@@ -121,7 +121,7 @@ class Card implements JsonSerializable
             return self::TEN_SYMBOL;
         }
 
-        return (string) $this->value();
+        return (string)$this->value();
     }
 
     /**
@@ -169,7 +169,7 @@ class Card implements JsonSerializable
                 $cardValue = static::getRawCardValueFromShortFaceName(ucfirst($facecardLetter));
             }
 
-            return new static((int) $cardValue, Suit::fromString($symbol));
+            return new static((int)$cardValue, Suit::fromString($symbol));
         } catch (\Exception $exception) {
             throw CardException::invalidCardString($value);
         }
@@ -284,7 +284,7 @@ class Card implements JsonSerializable
     public function equals($card)
     {
         return get_class($card) === static::class
-        && $card->value === $this->value;
+            && $card->value === $this->value;
     }
 
     /**
@@ -316,7 +316,7 @@ class Card implements JsonSerializable
     function jsonSerialize()
     {
         return [
-            'suit' => $this->suit()->value(),
+            'suit' => $this->suit()->letter(),
             'value' => $this->value,
         ];
     }

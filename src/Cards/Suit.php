@@ -194,6 +194,32 @@ final class Suit
     }
 
     /**
+     * Get the letter name.
+     *
+     * @return string
+     */
+    public function letter()
+    {
+        switch ($this->suit) {
+            case static::CLUB:
+                $letter = self::CLUB_LETTER;
+                break;
+            case static::DIAMOND:
+                $letter = self::DIAMOND_LETTER;
+                break;
+            case static::HEART:
+                $letter = self::HEART_LETTER;
+                break;
+            default:
+            case static::SPADE:
+                $letter = self::SPADE_LETTER;
+                break;
+        }
+
+        return $letter;
+    }
+
+    /**
      * @return string
      */
     public function __toString()
