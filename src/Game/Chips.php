@@ -2,7 +2,9 @@
 
 namespace Cysha\Casino\Game;
 
-class Chips
+use JsonSerializable;
+
+class Chips implements JsonSerializable
 {
     /**
      * @var int
@@ -67,5 +69,12 @@ class Chips
     public function __toString()
     {
         return (string) $this->amount();
+    }
+
+    public function jsonSerialize()
+    {
+        return [
+            'chips' => $this->chips,
+        ];
     }
 }

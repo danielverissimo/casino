@@ -3,12 +3,11 @@
 namespace Cysha\Casino\Game;
 
 use Cysha\Casino\Game\Contracts\Name as NameContract;
-use Ramsey\Uuid\Uuid;
 
 class Client implements NameContract
 {
     /**
-     * @var Uuid
+     * @var integer
      */
     private $id;
 
@@ -25,11 +24,11 @@ class Client implements NameContract
     /**
      * ClientTest constructor.
      *
-     * @param Uuid $id
+     * @param integer $id
      * @param string $name
      * @param Chips $chips
      */
-    public function __construct(Uuid $id, $name, Chips $wallet = null)
+    public function __construct(int $id, $name, Chips $wallet = null)
     {
         $this->id = $id;
         $this->name = $name;
@@ -42,15 +41,15 @@ class Client implements NameContract
      *
      * @return Client
      */
-    public static function register(Uuid $id, $name, Chips $chips = null): Client
+    public static function register(int $id, $name, Chips $chips = null): Client
     {
         return new static($id, $name, $chips);
     }
 
     /**
-     * @return Uuid
+     * @return integer
      */
-    public function id(): Uuid
+    public function id(): int
     {
         return $this->id;
     }
