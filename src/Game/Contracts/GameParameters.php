@@ -2,6 +2,8 @@
 
 namespace Cysha\Casino\Game\Contracts;
 
-interface GameParameters
+use JsonSerializable;
+
+interface GameParameters extends JsonSerializable
 {
 }

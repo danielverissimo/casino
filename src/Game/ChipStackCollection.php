@@ -4,8 +4,9 @@ namespace Cysha\Casino\Game;
 
 use Cysha\Casino\Game\Contracts\Player;
 use Illuminate\Support\Collection;
+use JsonSerializable;
 
-class ChipStackCollection extends Collection
+class ChipStackCollection extends Collection implements JsonSerializable
 {
     public function total(): Chips
     {

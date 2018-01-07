@@ -4,8 +4,9 @@ namespace Cysha\Casino\Game;
 
 use Cysha\Casino\Game\Contracts\Player;
 use Illuminate\Support\Collection;
+use JsonSerializable;
 
-class PlayerCollection extends Collection
+class PlayerCollection extends Collection implements JsonSerializable
 {
     /**
      * @param string $playerName
