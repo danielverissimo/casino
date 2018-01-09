@@ -4,8 +4,9 @@ namespace Cysha\Casino\Cards;
 
 use Cysha\Casino\Cards\Contracts\CardProvider;
 use Cysha\Casino\Cards\Providers\StandardCardProvider;
+use JsonSerializable;
 
-class Deck
+class Deck implements JsonSerializable
 {
     protected $cards = [];
 
@@ -119,5 +120,12 @@ class Deck
     {
         $this->cards = array_merge($this->cards, $this->cardsDrawn);
         $this->cardsDrawn = [];
+    }
+
+    function jsonSerialize()
+    {
+        return [
+            'cardsDrawn' => $this->cardsDrawn,
+        ];
     }
 }
