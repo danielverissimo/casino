@@ -4,7 +4,7 @@ namespace Cysha\Casino\Cards;
 
 use Cysha\Casino\Game\Contracts\Player;
 
-class Hand implements \Countable
+class Hand implements \Countable, \JsonSerializable
 {
     /**
      * @var CardCollection
@@ -89,5 +89,13 @@ class Hand implements \Countable
     public function __toString()
     {
         return $this->cards()->__toString();
+    }
+
+    function jsonSerialize()
+    {
+        return [
+            'cards' => $this->cards->jsonSerialize(),
+            'player' => $this->player->jsonSerialize()
+        ];
     }
 }
