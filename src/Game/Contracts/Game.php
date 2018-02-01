@@ -20,5 +20,7 @@ interface Game
 
     public function registerPlayer(Client $client, Chips $buyInAmount = null);
 
+    public function playersHoldingRebuy(): PlayerCollection;
+
     public function __toString(): string;
 }
