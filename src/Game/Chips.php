@@ -12,6 +12,11 @@ class Chips implements JsonSerializable
     private $chips;
 
     /**
+     * @var int
+     */
+    private $oldChips;
+
+    /**
      * Chips constructor.
      *
      * @param int $chips
@@ -19,6 +24,7 @@ class Chips implements JsonSerializable
     private function __construct(int $chips)
     {
         $this->chips = $chips;
+        $this->oldChips = $chips;
     }
 
     /**
@@ -48,10 +54,19 @@ class Chips implements JsonSerializable
     }
 
     /**
+     * @return int
+     */
+    public function oldChips()
+    {
+        return $this->oldChips;
+    }
+
+    /**
      * @param Chips $chips
      */
     public function add(Chips $chips)
     {
+        $this->oldChips = $this->chips;
         $this->chips += $chips->amount();
     }
 
@@ -60,6 +75,7 @@ class Chips implements JsonSerializable
      */
     public function subtract(Chips $chips)
     {
+        $this->oldChips = $this->chips;
         $this->chips -= $chips->amount();
     }
 

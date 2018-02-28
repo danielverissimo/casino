@@ -29,7 +29,7 @@ class StandardEvaluator implements CardEvaluator
      *
      * @return ResultCollection
      */
-    public function evaluateHands(CardCollection $board, HandCollection $playerHands): ResultCollection
+    public function evaluateHands(CardCollection $board, HandCollection &$playerHands): ResultCollection
     {
         return ResultCollection::make([
             static::evaluate($board, $playerHands->first()),

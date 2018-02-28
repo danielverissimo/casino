@@ -4,6 +4,7 @@ namespace Cysha\Casino\Game;
 
 use Cysha\Casino\Game\Contracts\Dealer;
 use Cysha\Casino\Game\Contracts\Player;
+use Cysha\Casino\Holdem\Game\Round;
 use Ramsey\Uuid\Uuid;
 
 class Table
@@ -96,4 +97,19 @@ class Table
             })
             ->first();
     }
+
+    /**
+     * @param string $playerId
+     *
+     * @return Player
+     */
+    public function findPlayerById($playerId): ?Player
+    {
+        return $this->players()
+            ->filter(function (Client $player) use ($playerId) {
+                return (int)$player->id() === (int)$playerId;
+            })
+            ->first();
+    }
+
 }

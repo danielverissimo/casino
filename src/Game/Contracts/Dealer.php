@@ -19,5 +19,5 @@ interface Dealer
     public function shuffleDeck();
 
     // TODO: SevenCardResultCollection shouldnt be here...
-    public function evaluateHands(CardCollection $board, HandCollection $playerHands);
+    public function evaluateHands(CardCollection $board, HandCollection &$playerHands);
 }

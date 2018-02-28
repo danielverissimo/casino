@@ -22,5 +22,7 @@ interface Game
 
     public function playersHoldingRebuy(): PlayerCollection;
 
+    public function findPlayerTable($playerId);
+
     public function __toString(): string;
 }

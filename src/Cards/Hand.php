@@ -17,6 +17,16 @@ class Hand implements \Countable, \JsonSerializable
     private $player;
 
     /**
+     * @var int
+     */
+    private $winCount;
+
+    /**
+     * @var int
+     */
+    private $tieCount;
+
+    /**
      * Hand constructor.
      *
      * @param CardCollection $cards
@@ -84,6 +94,46 @@ class Hand implements \Countable, \JsonSerializable
     public function addCard(Card $card)
     {
         $this->cards = $this->cards()->push($card);
+    }
+
+    /**
+     * Return winner count
+     *
+     * @return int
+     */
+    public function winCount()
+    {
+        return $this->winCount;
+    }
+
+    /**
+     * Increment winner count
+     *
+     * @return int
+     */
+    public function incrementWinCount()
+    {
+        return $this->winCount++;
+    }
+
+    /**
+     * Return winner tie count
+     *
+     * @return int
+     */
+    public function tieCount()
+    {
+        return $this->tieCount;
+    }
+
+    /**
+     * Increment winner tie count
+     *
+     * @return int
+     */
+    public function incrementTieCount()
+    {
+        return $this->tieCount++;
     }
 
     public function __toString()

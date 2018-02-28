@@ -20,5 +20,15 @@ interface CardEvaluator
      * @param CardCollection $board
      * @param HandCollection $hands
      */
-    public function evaluateHands(CardCollection $board, HandCollection $hands);
+    public function evaluateHands(CardCollection $board, HandCollection &$hands);
+
+    /**
+     * Calculate hands equity
+     *
+     * @param CardCollection $board
+     * @param HandCollection $playerHands
+     * @param $remainCards
+     * @return mixed
+     */
+    public function evaluateHandsEquity(CardCollection $board, HandCollection $playerHands);
 }

@@ -89,7 +89,7 @@ class Dealer implements DealerContract, NameContract
      *
      * @return ResultCollection
      */
-    public function evaluateHands(CardCollection $board, HandCollection $playerHands): ResultCollection
+    public function evaluateHands(CardCollection $board, HandCollection &$playerHands): ResultCollection
     {
         return $this->cardEvaluationRules->evaluateHands($board, $playerHands);
     }

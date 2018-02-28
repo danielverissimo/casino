@@ -85,4 +85,5 @@ class StandardCardResult implements CardResults
     {
         return $this->hand;
     }
+
 }
