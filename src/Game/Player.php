@@ -14,7 +14,7 @@ class Player extends Client implements PlayerContract
      * @param string $name
      * @param Chips $chips
      */
-    public function __construct(Uuid $id, $name, Chips $wallet = null)
+    public function __construct(int $id, $name, Chips $wallet = null)
     {
         parent::__construct($id, $name, $wallet);
     }
