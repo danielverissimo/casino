@@ -24,5 +24,9 @@ interface Game
 
     public function findPlayerTable($playerId);
 
+    public function removeTable($tableId);
+
+    public function tableExists($tableId) : bool;
+
     public function __toString(): string;
 }

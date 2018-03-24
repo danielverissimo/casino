@@ -103,7 +103,7 @@ class Table
      *
      * @return Player
      */
-    public function findPlayerById($playerId): ?Player
+    public function getPlayer($playerId): ?Player
     {
         return $this->players()
             ->filter(function (Client $player) use ($playerId) {
